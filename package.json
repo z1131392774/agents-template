@@ -1,0 +1,11 @@
+{
+  "name": "agents-template",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check": "node scripts/check-docs.mjs"
+  }
+}
