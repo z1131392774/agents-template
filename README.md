@@ -1,14 +1,16 @@
 # A minimal AGENTS.md system
 
+*[中文](README_zh.md)*
+
 A short instruction system modelled on the DeepSeek Harness team's setup: standing orders in the root, standards one level down, conditional procedures in skills, decisions in a lifecycle tree.
 
 | File | Words | Role |
 | --- | --- | --- |
-| [`AGENTS.md`](AGENTS.md) | ~720 | Standing orders. Loaded every session, kept short enough to stay read. |
-| [`docs/AGENTS.md`](docs/AGENTS.md) | ~1,150 | Tiers, loading mechanics, rule-writing, budgets, maintenance checklist. |
+| [`AGENTS.md`](AGENTS.md) | ~780 | Standing orders. Loaded every session, kept short enough to stay read. |
+| [`docs/AGENTS.md`](docs/AGENTS.md) | ~1,300 | Tiers, loading mechanics, rule-writing, budgets, maintenance checklist. |
 | [`docs/development.md`](docs/development.md) | ~740 | Change discipline, error handling, verification ladder, review checklist. |
 | [`.agents/notes/README.md`](.agents/notes/README.md) | ~690 | Decision notes: status, format, supersession, deletion. |
-| [`.agents/skills/pre-push-checks/SKILL.md`](.agents/skills/pre-push-checks/SKILL.md) | ~330 | Conditional procedure: which checks to run before pushing. |
+| [`.agents/skills/pre-push-checks/SKILL.md`](.agents/skills/pre-push-checks/SKILL.md) | ~335 | Conditional procedure: which checks to run before pushing. |
 
 [`scripts/check-docs.mjs`](scripts/check-docs.mjs) enforces the word budgets, local links, heading anchors, and trailing newlines. `npm run check` runs it; it needs Node 20 or newer and installs nothing.
 
@@ -38,4 +40,8 @@ The root file keeps one line and a link. This is the whole trick: the root file 
 
 ## Keep it honest
 
-`npm run check` catches the mechanical drift: broken links, missing headings, files over budget. Review the rest after any incident where the agent did the wrong thing. Most such incidents are a missing rule, a vague rule, or two rules that contradict. Fix the writing before adding another layer.
+`npm run check` catches the mechanical drift: broken links, missing headings, files over budget, and — if you write for a Chinese-speaking team — a document whose `_zh.md` twin is missing or no longer links back. Review the rest after any incident where the agent did the wrong thing. Most such incidents are a missing rule, a vague rule, or two rules that contradict. Fix the writing before adding another layer.
+
+## Two languages, one document
+
+English is the source. Each document carries a twin beside it whose name ends in `_zh.md`, and the pair links to each other; the gate fails if a twin is missing, so a half-translated tree cannot pass. Rules for writing the Chinese half are in [docs/AGENTS.md](docs/AGENTS.md#bilingual-documents).

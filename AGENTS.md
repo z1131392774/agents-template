@@ -1,5 +1,7 @@
 # AGENTS.md
 
+*[中文](AGENTS_zh.md)*
+
 Standing orders for any agent working in this repository. Read this file at the start of every session. The standard behind them lives in [docs/AGENTS.md](docs/AGENTS.md) for instruction and documentation structure, and in [docs/development.md](docs/development.md) for how to make and verify a change. Read the relevant one before your first change.
 
 Rules here are deliberately short. Background, examples, and procedures belong in the linked home, not in this file.
@@ -47,3 +49,7 @@ Replace the placeholders once. Keep each to a single line; an agent needs these 
 Rules live as deep as they can while still reaching their reader; the [tier model](docs/AGENTS.md#the-tier-model) names each home. A procedure that matters only at one moment lives in [`.agents/skills/`](.agents/skills/pre-push-checks/SKILL.md) and loads when its description matches the task. Decisions live in [`.agents/notes/`](.agents/notes/README.md).
 
 Add a rule here only if it is needed in every session. Otherwise put it in the correct home and link it once.
+
+## Documentation language
+
+English is the source; every document carries a Chinese twin beside it whose name ends in `_zh.md`, and the pair links in both directions. `npm run check` fails when a twin is missing, so a document that exists in one language only cannot land. The [bilingual rule](docs/AGENTS.md#bilingual-documents) says what a translation may change and what it must not.

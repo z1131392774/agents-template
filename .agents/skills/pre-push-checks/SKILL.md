@@ -5,6 +5,8 @@ description: Use before pushing, opening a pull request, or claiming a change is
 
 # Pre-push checks
 
+*[中文](SKILL_zh.md)*
+
 Run the checks that cover this diff, once. Everything else is CI's job.
 
 Open [references/check-selection.md](references/check-selection.md) when the mapping below is unclear, when a check fails and you need to decide whether it is in scope, or when the change crosses a boundary you did not expect.

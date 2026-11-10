@@ -1,5 +1,7 @@
 # AGENTS.md — Repository instructions and documentation
 
+*[中文](AGENTS_zh.md)*
+
 This file defines how instructions and documentation are organized in this repository: what belongs at which level, how the levels load, how to write a rule, and when a file has outgrown its budget. Working procedure — how to make a change and verify it — lives in [development.md](development.md).
 
 The rationale for this split is recorded in [the first note](../.agents/notes/implemented/2026-11-02-layered-agent-instructions.md).
@@ -55,6 +57,15 @@ Two practical consequences:
 - **Write for a reader who is competent but new.** No metaphors, no inherited shorthand, no references to a meeting or a chat.
 
 A rule earns its place only if it changes a decision the agent would otherwise get wrong. Delete rules that restate good practice every competent engineer already follows; they dilute the ones that matter.
+
+## Bilingual documents
+
+- **English is the source, Chinese the twin.** `docs/usage.md` and `docs/usage_zh.md` are one document in two files; the stem stays identical and only the suffix differs.
+- **Link both ways in the opening lines.** A reader who lands on either file reaches the other in one click; the gate fails when the link is missing.
+- **Translate the meaning, not the syntax.** A Chinese twin that keeps English word order reads as machine translation. Rewrite the sentence in Chinese, keep the facts, the numbers, and the commands exact.
+- **Move, rename, and delete both halves in one commit.** A pair that drifts is worse than a single language, because the reader trusts the copy that is wrong.
+- **Both halves obey the same budget.** Chinese is longer than English, so its ceiling is the English budget times `zhMultiplier` in `scripts/doc-budgets.json`, measured one unit per CJK character plus one per Latin word.
+- **Exempt only what is generated.** Files listed in `excludePairs` may stay single-language; everything hand-written is paired.
 
 ## Maintaining these files
 

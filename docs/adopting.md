@@ -1,5 +1,7 @@
 # Adopting this system
 
+*[中文](adopting_zh.md)*
+
 Two starting points. A new repository has no rules yet, so an agent must receive the template before it writes code. An existing repository already contains the truth the rules must describe, so adoption is an audit first and a copy second.
 
 Both paths end in the same place: a short root file, a gate that keeps it honest, and detail that lives where it is used.
@@ -66,6 +68,16 @@ Do not copy the rules wholesale. Most of them will describe a project that does 
 A symlinked `CLAUDE.md` survives a clone only when Git stores it as a symlink; on Windows, enable Developer Mode or create it with `New-Item -ItemType SymbolicLink -Path CLAUDE.md -Target AGENTS.md`.
 
 Keep the gate green from the first commit. A red gate in week one becomes a habit of ignoring it in week two, and then the file's promises are decorative.
+
+## Keep or drop the two languages
+
+Every document here ships twice: an English source and a `_zh.md` twin. `check-docs.mjs` fails when a twin is missing, when it does not link back, or when either side overruns its budget. A stale twin is worse than none.
+
+Pick one state, and change the gate in the same commit:
+
+- **Both languages.** Keep the pairing rule. Translate from the English source with a subagent, then check the result against the writing rules in `docs/AGENTS.md`. A twin that mirrors English syntax has failed.
+- **One language.** Delete the twins, drop `zhMultiplier` usage and the pairing check from `check-docs.mjs`, and remove the rule from `AGENTS.md` and `docs/AGENTS.md`. Leave the rest of the gate alone; budgets and links still earn their keep.
+- **One language for now.** List the missing ones in `excludePairs` in `doc-budgets.json`. The exemption is visible, and it goes away when the twin lands.
 
 ## What to expect
 

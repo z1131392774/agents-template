@@ -1,5 +1,7 @@
 # Choosing the narrowest check
 
+*[中文](check-selection_zh.md)*
+
 The rule is coverage, not convenience: run what would fail if your change were wrong, and nothing that would succeed regardless.
 
 ## Work an example

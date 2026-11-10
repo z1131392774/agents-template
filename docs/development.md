@@ -1,5 +1,7 @@
 # Development guide
 
+*[中文](development_zh.md)*
+
 How to make a change in this repository and how to know it is finished. The instruction standard lives in [AGENTS.md](AGENTS.md); the standing orders an agent reads every session are in the [root AGENTS.md](../AGENTS.md).
 
 ## Change discipline

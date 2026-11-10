@@ -1,5 +1,7 @@
 # Note: Layer agent instructions and keep decisions in notes
 
+*[中文](2026-11-02-layered-agent-instructions_zh.md)*
+
 Status: implemented
 
 ## Problem

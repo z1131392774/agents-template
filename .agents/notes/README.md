@@ -1,5 +1,7 @@
 # Notes
 
+*[中文](README_zh.md)*
+
 Notes are short decision records written by agents, for agents and maintainers. Code says *what* happens; documentation says *how* to use it; a note says *why* we chose this, what we rejected, and what it cost. Without that record, the same argument happens again six months later, usually with less information.
 
 One decision, one note. A note is not a changelog, a task list, or a tutorial.

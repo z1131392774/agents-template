@@ -1,5 +1,7 @@
 # Note: Gate documentation invariants and add conditional-procedure skills
 
+*[中文](2026-11-02-doc-gates-and-skills_zh.md)*
+
 Status: implemented
 
 ## Problem

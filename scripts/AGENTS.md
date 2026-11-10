@@ -1,5 +1,7 @@
 # AGENTS.md — Gate scripts
 
+*[中文](AGENTS_zh.md)*
+
 Rules for the scripts in this directory, which enforce documentation invariants.
 
 - **Dependency-free Node ESM.** A gate runs from a fresh checkout with no install step. Adding a dependency to a gate means the gate is unavailable exactly when it is needed.
