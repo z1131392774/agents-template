@@ -17,6 +17,10 @@ English stays the source, and each document is paired with a Chinese twin beside
 - **Translation as a release step.** Drift accumulates between releases, and the gate cannot see it while it is cheap to fix.
 - **Machine translation without review.** Word-order calques appear as soon as the subject is long; the Chinese reads as English wearing Chinese words. The writer translates, the gate checks the shape.
 
+## Staleness is a separate failure
+
+A pair that exists, links both ways, and fits its budget can still be wrong: the English half moved and the translation did not. The first gate version could not see this, and it cost a reader a confusing afternoon, so `check-docs.mjs` now compares the last commit that touched each half and reports the pair when the Chinese one is older. `pendingTranslations` in `doc-budgets.json` is the escape hatch for a rewrite spread over several commits. Repositories without history — a packed tarball, a shallow CI checkout — skip the comparison rather than guess; CI therefore checks out with `fetch-depth: 0`.
+
 ## Consequences
 
 Every documentation change doubles its file count and costs a translation. In exchange, a Chinese-only reader gets a document written for them, and the gate makes a missing or stale twin visible before review rather than after.

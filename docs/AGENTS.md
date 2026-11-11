@@ -63,6 +63,7 @@ A rule earns its place only if it changes a decision the agent would otherwise g
 - **English is the source, Chinese the twin.** `docs/usage.md` and `docs/usage_zh.md` are one document in two files; the stem stays identical and only the suffix differs.
 - **Link both ways in the opening lines.** A reader who lands on either file reaches the other in one click; the gate fails when the link is missing.
 - **Translate the meaning, not the syntax.** A Chinese twin that keeps English word order reads as machine translation. Rewrite the sentence in Chinese, keep the facts, the numbers, and the commands exact.
+- **Refresh the twin when the source moves.** A translation whose English half changed afterwards fails `npm run check`; recompute the paragraph instead of leaving a stale copy, or list the file under `pendingTranslations` while the rewrite is in progress.
 - **Move, rename, and delete both halves in one commit.** A pair that drifts is worse than a single language, because the reader trusts the copy that is wrong.
 - **Both halves obey the same budget.** Chinese is longer than English, so its ceiling is the English budget times `zhMultiplier` in `scripts/doc-budgets.json`, measured one unit per CJK character plus one per Latin word.
 - **Exempt only what is generated.** Files listed in `excludePairs` may stay single-language; everything hand-written is paired.
@@ -72,7 +73,7 @@ A rule earns its place only if it changes a decision the agent would otherwise g
 - **Review quarterly, and after any incident** where an agent did the wrong thing. Add the missing rule or remove the rule that misled it.
 - **Grow downward.** When a file approaches its budget, move a paragraph into the subtree file or the procedure document it belongs to, and leave one line behind.
 - **Prefer deletion.** Two years of accreted rules make an unreadable file. If a rule no longer matches reality, fix or delete it; a stale rule teaches the wrong lesson actively.
-- **Check links mechanically.** `npm run check` resolves every local link and heading anchor. A broken link is a silent failure in exactly the place agents trust most.
+- **Check links and age mechanically.** `npm run check` resolves every local link and heading anchor, and reports a twin whose English half moved afterwards. A broken link is a silent failure in exactly the place agents trust most.
 - **A rule with no executor is advice.** If violating the rule cannot fail a check, say so in the rule, or accept that it depends on review.
 - **Treat a violation as a documentation bug first.** If an agent repeatedly ignores a rule, the rule is probably vague, buried, or contradicted elsewhere. Fix the writing before blaming the agent.
 
