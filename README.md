@@ -45,3 +45,7 @@ The root file keeps one line and a link. This is the whole trick: the root file 
 ## Two languages, one document
 
 English is the source. Each document carries a twin beside it whose name ends in `_zh.md`, and the pair links to each other; the gate fails if a twin is missing, so a half-translated tree cannot pass. Rules for writing the Chinese half are in [docs/AGENTS.md](docs/AGENTS.md#bilingual-documents).
+
+## License
+
+MIT, the same license as [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness), the repository this template was extracted from. See [LICENSE](LICENSE).

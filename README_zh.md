@@ -45,3 +45,7 @@
 ## 两种语言，一份文档
 
 英文是源稿。每份文档旁边放一个 `_zh.md` 结尾的孪生文件，两份互相链接；缺了孪生文件门禁就报错，所以译了一半的树过不了关。中文那一半的写法，见 [docs/AGENTS.md](docs/AGENTS.md#bilingual-documents)。
+
+## 许可证
+
+MIT，与这个模板提取自的 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 仓库同一套条款。见 [LICENSE](LICENSE)。
