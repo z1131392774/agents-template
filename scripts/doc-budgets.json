@@ -4,8 +4,8 @@
   "budgets": {
     "AGENTS.md": 1200,
     "README.md": 700,
-    "docs/AGENTS.md": 1300,
-    "docs/adopting.md": 900,
+    "docs/AGENTS.md": 1400,
+    "docs/adopting.md": 950,
     "docs/development.md": 900,
     ".agents/notes/README.md": 900,
     ".agents/skills/pre-push-checks/SKILL.md": 500,

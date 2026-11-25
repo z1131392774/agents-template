@@ -25,7 +25,10 @@
  * An empty corpus is a failure: a gate that checks nothing passes everything.
  * Symlinks are skipped so a `CLAUDE.md` alias is never counted twice.
  *
- * Usage: `node scripts/check-docs.mjs`
+ * Usage: `node scripts/check-docs.mjs` gates and exits non-zero on a finding.
+ * `--list` instead prints each budgeted file beside its current count, tightest
+ * headroom first, and exits zero: it is the report a ceiling change starts from,
+ * not a second gate.
  */
 
 import { readFile, readdir } from 'node:fs/promises'
@@ -40,6 +43,7 @@ const DOCS_BUDGET = 1_200
 const ZH_SUFFIX = '_zh.md'
 
 const errors = []
+const listOnly = process.argv.includes('--list')
 
 const manifest = JSON.parse(await readFile(join(ROOT, 'scripts/doc-budgets.json'), 'utf8'))
 const budgets = manifest.budgets ?? {}
@@ -143,6 +147,28 @@ for (const [index, absolute] of absoluteFiles.entries()) {
   anchors.set(file, new Set(
     [...withoutFences(text).matchAll(/^#{1,6}\s+(.+)$/gmu)].map(match => slug(match[1])),
   ))
+}
+
+if (listOnly) {
+  if (errors.length > 0) {
+    console.error(errors.join('\n'))
+    process.exit(1)
+  }
+  const rows = []
+  for (const [file, text] of contents) {
+    const ceiling = budgetFor(file)
+    if (!Number.isFinite(ceiling)) continue
+    const units = countUnits(text)
+    const headroom = ((ceiling - units) / ceiling) * 100
+    rows.push({
+      headroom,
+      line: `${String(units).padStart(5)} / ${String(ceiling).padEnd(5)} ${headroom.toFixed(1).padStart(6)}%  ${file}`,
+    })
+  }
+  rows.sort((a, b) => a.headroom - b.headroom)
+  console.log('units / ceiling  headroom  file (tightest first)')
+  console.log(rows.map(row => row.line).join('\n'))
+  process.exit(0)
 }
 
 for (const file of files) {
